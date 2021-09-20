@@ -7,7 +7,7 @@ const app = express();
 
 const corsOptions = {
   // origin: 'http://localhost:3000'
-  origin: 'http://3.127.98.68'
+  origin: 'http://35.158.242.91'
 };
 app.use(cors(corsOptions));
 
