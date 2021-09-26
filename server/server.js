@@ -9,7 +9,9 @@ const corsOptions = {
   // origin: 'http://localhost:3000'
   origin: 'http://54.197.154.252/'
 };
-app.use(cors(corsOptions));
+
+app.use(cors());
+// app.use(cors(corsOptions));
 
 // const whitelist = [
 //   'https://checkout.stripe.com',
