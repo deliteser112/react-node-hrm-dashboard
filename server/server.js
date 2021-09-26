@@ -6,12 +6,12 @@ const bcrypt = require('bcryptjs');
 const app = express();
 
 const corsOptions = {
-  origin: 'http://localhost:3000'
-  // origin: 'http://54.197.154.252/'
+  // origin: 'http://localhost:3000'
+  origin: 'http://54.197.154.252/'
 };
 
-// app.use(cors());
-app.use(cors(corsOptions));
+app.use(cors());
+// app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
@@ -62,10 +62,10 @@ function initial() {
 
 // force: true will drop the table if it already exists
 
-// db.sequelize.sync({ force: true }).then(() => {
-//   console.log('Drop and Resync Database with { force: true }');
-//   initial();
-// });
+db.sequelize.sync({ force: true }).then(() => {
+  console.log('Drop and Resync Database with { force: true }');
+  initial();
+});
 
 // simple route
 app.get('/', (req, res) => {
