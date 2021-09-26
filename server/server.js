@@ -6,34 +6,12 @@ const bcrypt = require('bcryptjs');
 const app = express();
 
 const corsOptions = {
-  // origin: 'http://localhost:3000'
-  origin: 'http://54.197.154.252/'
+  origin: 'http://localhost:3000'
+  // origin: 'http://54.197.154.252/'
 };
 
-app.use(cors());
-// app.use(cors(corsOptions));
-
-// const whitelist = [
-//   'https://checkout.stripe.com',
-//   'http://localhost:3000',
-//   'http://3.68.219.73/'
-// ];
-// const corsOptions = {
-//   origin: (origin, callback) => {
-//     if (whitelist.indexOf(origin) !== -1) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error());
-//     }
-//   }
-// };
-
-// app.use(cors(corsOptions));
-// app.use(
-//   cors({
-//     methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']
-//   })
-// );
+// app.use(cors());
+app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
@@ -43,8 +21,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // database
 const db = require('./app/models');
-
-// const { sequelize } = db;
 
 const Role = db.role;
 const User = db.user;
@@ -86,10 +62,10 @@ function initial() {
 
 // force: true will drop the table if it already exists
 
-db.sequelize.sync({ force: true }).then(() => {
-  console.log('Drop and Resync Database with { force: true }');
-  initial();
-});
+// db.sequelize.sync({ force: true }).then(() => {
+//   console.log('Drop and Resync Database with { force: true }');
+//   initial();
+// });
 
 // simple route
 app.get('/', (req, res) => {

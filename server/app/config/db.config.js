@@ -1,6 +1,6 @@
 module.exports = {
   HOST: 'localhost',
-  USER: 'thimbleuser',
+  USER: 'root',
   PASSWORD: 'Deliteser112!!@',
   DB: 'db_thimble',
   dialect: 'mysql',

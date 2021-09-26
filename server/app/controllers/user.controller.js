@@ -244,10 +244,15 @@ exports.getProfile = (req, res) => {
             firstname: userData.firstname,
             lastname: userData.lastname,
             email: userData.email,
-            photoURL: userData.photoURL,
-            prefferedname: userData.prefferedname,
-            jobtitle: userData.jobtitle,
-            departmentname: userData.departmentname,
+            photoURL:
+              userData.photoURL === '/static/uploads/1.jpg'
+                ? null
+                : userData.photoURL,
+            prefferedname:
+              userData.prefferedname === null ? '' : userData.prefferedname,
+            jobtitle: userData.jobtitle === null ? '' : userData.jobtitle,
+            departmentname:
+              userData.departmentname === null ? '' : userData.departmentname,
             roles: ROLES[userData.roleId - 1].toUpperCase(),
             offices: officeIds,
             teams: teamIds,
